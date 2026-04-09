@@ -1,0 +1,56 @@
+/* header */
+header {
+    background-image: url('../images/大聖堂2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    flex-direction: column; 
+    justify-content: flex-end; 
+    align-items: flex-end;   
+    min-height: 40vh; 
+    padding-right: 5%;         
+    padding-bottom: 10px;      
+    text-align: right;         
+    line-height: 0.05;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); 
+}
+
+/* header line */
+.line {
+    width: 300px;           
+    border: 0;              
+    height: 2px;            
+    background: linear-gradient(to right, transparent, #ffffff, transparent);
+    margin: 10px 0;         
+    align-self: flex-end;   
+}
+
+/* 手機板排版 */
+@media (max-width: 768px) {
+    header {
+        min-height: 13vh !important;
+        padding-bottom: 20px !important;
+        line-height: 0.5 !important; 
+    }
+
+    /* 標題字體大小 */
+    header h1 {
+        font-size: 0.8rem !important;
+        margin: 0 !important;
+    }
+
+    /* 副標題字體大小 */
+    header p {
+        font-size: 0.65rem !important;
+        margin: 0 !important;
+    }
+
+    /* 橫線 */
+    .line {
+        width: 150px !important;
+        margin: 5px 0 !important;
+    }
+}

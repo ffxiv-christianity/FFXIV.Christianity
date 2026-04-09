@@ -1,0 +1,171 @@
+/* body */
+body {
+    background-image: 
+        linear-gradient(rgba(253, 251, 245, 0.85), rgba(253, 251, 245, 0.85)),
+        url('../images/bg.png');
+    background-repeat: repeat; 
+    background-size: 250px auto;
+    background-attachment: fixed; 
+    background-color: #fdfbf5; 
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* MENU按鈕 */
+.menu-container {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+}
+
+/* MENU按鈕本體 */
+.menu-btn {
+    font-family: "Arial Black", "Verdana", "Microsoft JhengHei", sans-serif;
+
+background: transparent;
+    border: none; /* 移除外框 */
+    
+    color: #5C4033; 
+    font-size: 3rem; 
+    font-weight: 800;   
+    letter-spacing: 3px;
+    cursor: pointer;
+    padding: 10px 15px;
+
+    text-shadow: 
+        1px 1px 2px rgba(0, 0, 0, 0.2),    /* 右下 */
+        -1px -1px 2px rgba(255, 255, 255, 0.8); /* 左上 */
+    
+    transition: all 0.3s ease-in-out;
+    outline: none;
+}
+
+.menu-btn:hover {
+    letter-spacing: 4px; /* 懸停時字體展開 */
+    box-shadow: 0 6px 20px rgba(180, 140, 0, 0.15);
+    text-shadow: 
+        2px 2px 4px rgba(180, 140, 0, 0.3),  
+        -2px -2px 4px rgba(255, 255, 255, 1);
+    
+    transform: translateY(-2px); /* 上浮 */
+}
+
+/* 側邊選單樣式 */
+.side-menu {
+display: none;
+    flex-direction: column;
+    
+background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    margin-top: 12px;
+    border-radius: 2px;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.1);
+    min-width: 200px;
+    overflow: hidden;
+    animation: fadeInSlide 0.4s ease-out; /* 增加滑入動畫 */
+}
+
+/* 選單內的連結 */
+.side-menu a {
+padding: 18px 25px;
+    text-decoration: none;
+    color: #5C4033;
+    font-size: 0.9rem;
+    border-bottom: 1px solid rgba(210, 193, 165, 0.3);
+    transition: 0.3s;
+}
+
+.side-menu a:last-child {
+    border-bottom: none;
+}
+
+.side-menu a:hover {
+background: rgba(180, 140, 0, 0.1);
+    color: #B48C00;
+    padding-left: 35px;
+}
+
+.side-menu a.active {
+    border-left: 5px solid #B48C00;
+    background-color: #E8DCC4;
+}
+
+@keyframes fadeInSlide {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* MENU選單End */
+
+/* 主要內容區塊 */
+main {
+    max-width: 800px;
+    margin: 40px auto;
+    filter: drop-shadow(0 15px 30px rgba(0,0,0,0.08)); /* 增加立體感 */
+    position: relative;
+    z-index: 1;
+}
+
+/* section blocks start */
+section {
+    background: radial-gradient(circle, #F5F1E6 0%, #f4eee1 100%);
+    border: 1px solid #D2C1A5;
+    margin-bottom: 30px;
+    padding: 15px 30px 30px 30px;;
+    border-radius: 4px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1); 
+    color: #3E322B; 
+}
+
+section h2 {
+    color: #5C4033; 
+    margin-top: 0;
+    border-bottom: 2px solid #D2C1A5;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+/* section blocks end */
+
+/* 頁尾 */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #2c3e50;
+    color: #fff;
+    margin-top: 40px;
+}
+
+/* 手機板排版 */
+@media (max-width: 768px) {
+    main {
+        max-width: 100%; 
+        margin: 10px auto; 
+        padding: 0 15px; 
+        box-sizing: border-box; 
+    }
+
+    section {
+        padding: 15px !important; 
+        margin-bottom: 20px;
+    }
+
+    /* blocks */
+    section {
+        padding: 10px 15px 20px 15px !important; 
+    }
+    section h2 {
+        margin-top: 0 !important;
+        font-size: 1.2rem !important; 
+    }
+}

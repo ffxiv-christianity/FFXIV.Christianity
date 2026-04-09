@@ -1,0 +1,174 @@
+/* 活動標籤切換按鈕 */
+.activity-tabs {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.tab-btn {
+    background-color: #E8DCC4; 
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    color: #5C4033;
+    border: 1px solid #D2C1A5;
+}
+
+.tab-btn.active {
+    background-color: #FFD700;
+    border-color: #B48C00;
+}
+
+/* 輪播器結構樣式 */
+.slider-group {
+    display: none; 
+}
+
+.slider-group.active {
+    display: block;
+}
+
+/* 輪播器左右按鈕 */
+.carousel-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: #000;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* 輪播器屬性*/
+.slider-container {
+    display: flex;
+    overflow-x: hidden;         
+    scroll-behavior: smooth;
+    width: 100%;
+    gap: 0; 
+    scroll-snap-type: x mandatory;      /* 啟用強制對齊 */
+    padding: 0;
+    margin: 0;
+}
+
+.item {
+    flex: 0 0 100%;             /* 確保每一張圖剛好是 100% 寬度 */
+    width: 100%;
+    scroll-snap-align: start;   /* 設定吸附點在開頭 */
+    scroll-snap-stop: always;   /* 確保不會一次滑過頭 */
+}
+
+.item img {
+    width: 100%;
+    display: block;             /* 移除圖片下方的微小間隙 */
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+}
+
+/* 左右切換按鈕樣式 */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.prev { left: 0; border-radius: 0 5px 5px 0; }
+.next { right: 0; border-radius: 5px 0 0 5px; }
+
+.prev:hover, .next:hover {
+    background: rgba(243, 156, 18, 0.8);
+}
+
+.slider-note {
+    text-align: center;
+    font-size: 0.9rem;
+    margin-top: 10px;
+    color: #8a7b63;
+}
+
+/* 彈窗背景 */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95); 
+    cursor: default; 
+    align-items: center;
+    justify-content: center;
+}
+
+/* 放大後的圖片樣式 */
+.lightbox-content {
+    max-width: 90%;
+    max-height: 80%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border: 3px solid #f0efd3; 
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+    border-radius: 4px;
+    animation: zoomIn 0.3s ease; 
+}
+
+/* Lightbox 左右按鈕 */
+.lightbox-prev, .lightbox-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 215, 0, 0.3); /* 淡淡的金邊 */
+    padding: 20px 15px;
+    cursor: pointer;
+    font-size: 30px;
+    transition: 0.3s;
+    user-select: none;
+}
+
+.lightbox-prev { left: 20px; border-radius: 0 5px 5px 0; }
+.lightbox-next { right: 20px; border-radius: 5px 0 0 5px; }
+
+.lightbox-prev:hover, .lightbox-next:hover {
+    background: rgba(243, 156, 18, 0.5); /* 懸停時變金橙色 */
+    color: #FFD700;
+}
+
+/* 關閉按鈕 */
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.7); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* 手機板排版 */
+@media (max-width: 768px) {
+    /* Photos 高度 */
+    .item img {
+        height: auto !important;
+    }
+}

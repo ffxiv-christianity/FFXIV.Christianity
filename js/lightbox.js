@@ -1,41 +1,35 @@
-let currentSlideIndex = 0;
 let currentLightboxIndex = 0;
 let currentLightboxImages = [];
 
 // 1. 分類切換邏輯
-function showSlider(sliderId) {
-    const groups = document.querySelectorAll('.slider-group');
-    groups.forEach(g => g.classList.remove('active'));
+function showSlider(categoryId) {
+document.querySelectorAll('.slider-group, .note-content').forEach(el => el.classList.remove('active'));
 
-    const btns = document.querySelectorAll('.tab-btn');
-    btns.forEach(b => b.classList.remove('active'));
+    const targetSlider = document.getElementById(categoryId);
+    const targetNote = document.getElementById('note-' + categoryId);
 
-    const target = document.getElementById(sliderId);
-    if (target) {
-        target.classList.add('active');
-        currentSlideIndex = 0;
-        const container = target.querySelector('.slider-container');
+    if (targetSlider) {
+        targetSlider.classList.add('active');
+        const container = targetSlider.querySelector('.slider-container');
         if (container) container.scrollLeft = 0;
     }
-
-    if (window.event && window.event.currentTarget) {
-        window.event.currentTarget.classList.add('active');
-    }
+    if (targetNote) targetNote.classList.add('active');
 }
 
 // 2. 輪播器控制邏輯
 function moveSlide(sliderId, direction) {
-    const container = document.querySelector(`#${sliderId} .slider-container`);
+const container = document.querySelector(`#${sliderId} .slider-container`);
     if (!container) return;
 
-    const items = container.querySelectorAll('.item');
-    const totalSlides = items.length;
+    const scrollWidth = container.clientWidth; 
+    const currentScroll = container.scrollLeft; 
+    
+    let targetLeft = Math.round(currentScroll / scrollWidth + direction) * scrollWidth;
 
-    currentSlideIndex += direction;
-    if (currentSlideIndex >= totalSlides) currentSlideIndex = 0;
-    else if (currentSlideIndex < 0) currentSlideIndex = totalSlides - 1;
+    const maxScroll = container.scrollWidth - scrollWidth;
+    if (targetLeft > maxScroll) targetLeft = 0; // 超過最後一張回到第一張
+    else if (targetLeft < 0) targetLeft = Math.floor(maxScroll / scrollWidth) * scrollWidth;  //低於第一張跳到最後一張
 
-    const targetLeft = container.clientWidth * currentSlideIndex;
     container.scrollTo({ left: targetLeft, behavior: 'smooth' });
 }
 

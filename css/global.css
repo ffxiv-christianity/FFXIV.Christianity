@@ -1,12 +1,21 @@
+header {
+    width: 100%;
+    height: 10vh;
+    background: transparent;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
 /* body */
 body {
-    background-image: 
+    background-image:
         linear-gradient(rgba(253, 251, 245, 0.85), rgba(253, 251, 245, 0.85)),
         url('../images/bg.png');
-    background-repeat: repeat; 
+    background-repeat: repeat;
     background-size: 250px auto;
-    background-attachment: fixed; 
-    background-color: #fdfbf5; 
+    background-attachment: fixed;
+    background-color: #fdfbf5;
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -26,40 +35,40 @@ body {
 .menu-btn {
     font-family: "Arial Black", "Verdana", "Microsoft JhengHei", sans-serif;
 
-background: transparent;
-    border: none; /* 移除外框 */
-    
-    color: #5C4033; 
-    font-size: 3rem; 
-    font-weight: 800;   
+    background: transparent;
+    border: none;
+
+    color: #5C4033;
+    font-size: 3rem;
+    font-weight: 800;
     letter-spacing: 3px;
     cursor: pointer;
     padding: 10px 15px;
 
-    text-shadow: 
-        1px 1px 2px rgba(0, 0, 0, 0.2),    /* 右下 */
-        -1px -1px 2px rgba(255, 255, 255, 0.8); /* 左上 */
-    
+    text-shadow:
+        1px 1px 2px rgba(0, 0, 0, 0.2),
+        -1px -1px 2px rgba(255, 255, 255, 0.8);
+
     transition: all 0.3s ease-in-out;
     outline: none;
 }
 
 .menu-btn:hover {
-    letter-spacing: 4px; /* 懸停時字體展開 */
+    letter-spacing: 4px;
     box-shadow: 0 6px 20px rgba(180, 140, 0, 0.15);
-    text-shadow: 
-        2px 2px 4px rgba(180, 140, 0, 0.3),  
+    text-shadow:
+        2px 2px 4px rgba(180, 140, 0, 0.3),
         -2px -2px 4px rgba(255, 255, 255, 1);
-    
-    transform: translateY(-2px); /* 上浮 */
+
+    transform: translateY(-2px);
 }
 
 /* 側邊選單樣式 */
 .side-menu {
-display: none;
+    display: none;
     flex-direction: column;
-    
-background: rgba(255, 255, 255, 0.7);
+
+    background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.5);
@@ -68,12 +77,13 @@ background: rgba(255, 255, 255, 0.7);
     box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.1);
     min-width: 200px;
     overflow: hidden;
-    animation: fadeInSlide 0.4s ease-out; /* 增加滑入動畫 */
+    animation: fadeInSlide 0.4s ease-out;
+    /* 增加滑入動畫 */
 }
 
 /* 選單內的連結 */
 .side-menu a {
-padding: 18px 25px;
+    padding: 18px 25px;
     text-decoration: none;
     color: #5C4033;
     font-size: 0.9rem;
@@ -86,7 +96,7 @@ padding: 18px 25px;
 }
 
 .side-menu a:hover {
-background: rgba(180, 140, 0, 0.1);
+    background: rgba(180, 140, 0, 0.1);
     color: #B48C00;
     padding-left: 35px;
 }
@@ -101,20 +111,22 @@ background: rgba(180, 140, 0, 0.1);
         opacity: 0;
         transform: translateY(-10px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
+
 /* MENU選單End */
 
 /* 主要內容區塊 */
 main {
-    max-width: 800px;
-    margin: 40px auto;
-    filter: drop-shadow(0 15px 30px rgba(0,0,0,0.08)); /* 增加立體感 */
-    position: relative;
-    z-index: 1;
+    max-width: none;
+    width: 100%;
+    display: block;
+    margin: 0;
+    padding: 0;
 }
 
 /* section blocks start */
@@ -122,19 +134,21 @@ section {
     background: radial-gradient(circle, #F5F1E6 0%, #f4eee1 100%);
     border: 1px solid #D2C1A5;
     margin-bottom: 30px;
-    padding: 15px 30px 30px 30px;;
+    padding: 15px 30px 30px 30px;
+    ;
     border-radius: 4px;
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1); 
-    color: #3E322B; 
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    color: #3E322B;
 }
 
 section h2 {
-    color: #5C4033; 
+    color: #5C4033;
     margin-top: 0;
     border-bottom: 2px solid #D2C1A5;
     padding-bottom: 10px;
     margin-bottom: 20px;
 }
+
 /* section blocks end */
 
 /* 頁尾 */
@@ -147,25 +161,53 @@ footer {
 }
 
 /* 手機板排版 */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
+    header {
+        min-height: 7vh !important;
+        padding: 0 5px !important;
+        justify-content: center;
+    }
+
+    .menu-btn {
+    font-family: "Arial Black", "Verdana", "Microsoft JhengHei", sans-serif;
+
+    background: transparent;
+    border: none;
+
+    color: #5C4033;
+    font-size: 2.2rem;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    padding: 5px 7.5px;
+
+    text-shadow:
+        1px 1px 2px rgba(0, 0, 0, 0.2),
+        -1px -1px 2px rgba(255, 255, 255, 0.8);
+
+    transition: all 0.3s ease-in-out;
+    outline: none;
+    }
+
     main {
-        max-width: 100%; 
-        margin: 10px auto; 
-        padding: 0 15px; 
-        box-sizing: border-box; 
+        max-width: 100%;
+        margin: 10px auto;
+        padding: 0 15px;
+        box-sizing: border-box;
     }
 
     section {
-        padding: 15px !important; 
+        padding: 15px !important;
         margin-bottom: 20px;
     }
 
     /* blocks */
     section {
-        padding: 10px 15px 20px 15px !important; 
+        padding: 10px 15px 20px 15px !important;
     }
+
     section h2 {
         margin-top: 0 !important;
-        font-size: 1.2rem !important; 
+        font-size: 1.2rem !important;
     }
 }

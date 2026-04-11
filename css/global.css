@@ -1,0 +1,304 @@
+header {
+    width: 100%;
+    height: 10vh;
+    background: transparent;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+/* body */
+body {
+    background-image:
+        linear-gradient(rgba(253, 251, 245, 0.85), rgba(253, 251, 245, 0.85)),
+        url('../images/bg.png');
+    background-repeat: repeat;
+    background-size: 250px auto;
+    background-attachment: fixed;
+    background-color: #fdfbf5;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* MENU按鈕 */
+.menu-container {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+}
+
+/* MENU按鈕本體 */
+.menu-btn {
+    font-family: "Arial Black", "Verdana", "Microsoft JhengHei", sans-serif;
+
+    background: transparent;
+    border: none;
+
+    color: #5C4033;
+    font-size: 3rem;
+    font-weight: 800;
+    letter-spacing: 3px;
+    cursor: pointer;
+    padding: 10px 15px;
+
+    text-shadow:
+        1px 1px 2px rgba(0, 0, 0, 0.2),
+        -1px -1px 2px rgba(255, 255, 255, 0.8);
+
+    transition: all 0.3s ease-in-out;
+    outline: none;
+}
+
+.menu-btn:hover {
+    letter-spacing: 4px;
+    box-shadow: 0 6px 20px rgba(180, 140, 0, 0.15);
+    text-shadow:
+        2px 2px 4px rgba(180, 140, 0, 0.3),
+        -2px -2px 4px rgba(255, 255, 255, 1);
+
+    transform: translateY(-2px);
+}
+
+/* 側邊選單樣式 */
+.side-menu {
+    display: none;
+    flex-direction: column;
+
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    margin-top: 12px;
+    border-radius: 2px;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.1);
+    min-width: 200px;
+    overflow: hidden;
+    animation: fadeInSlide 0.4s ease-out;
+    /* 增加滑入動畫 */
+}
+
+/* 選單內的連結 */
+.side-menu a {
+    padding: 18px 25px;
+    text-decoration: none;
+    color: #5C4033;
+    font-size: 0.9rem;
+    border-bottom: 1px solid rgba(210, 193, 165, 0.3);
+    transition: 0.3s;
+}
+
+.side-menu a:last-child {
+    border-bottom: none;
+}
+
+.side-menu a:hover {
+    background: rgba(180, 140, 0, 0.1);
+    color: #B48C00;
+    padding-left: 35px;
+}
+
+.side-menu a.active {
+    border-left: 5px solid #B48C00;
+    background-color: #E8DCC4;
+}
+
+@keyframes fadeInSlide {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* MENU選單End */
+
+/* 音樂播放器 */
+.music-player {
+    position: fixed !important;
+    bottom: 30px !important;
+    right: 30px !important;
+    z-index: 6000 !important;
+    width: 55px !important;
+    height: 55px !important;
+    overflow: visible !important;
+}
+
+
+/* 圓形按鈕本體 (FAB) */
+.music-fab {
+    width: 90% !important;
+    height: 90% !important;
+    border-radius: 50% !important;
+    background-color: #F5F1E6 !important;
+    border: 1px solid #D2C1A5 !important;
+    color: #5C4033;
+
+    font-size: 1.8rem !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    background-image: none !important;
+    overflow: hidden !important;
+
+    margin: 0 !important;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    position: relative !important; 
+}
+
+.music-fab .icon {
+    position: relative; 
+    display: inline-block;
+    font-style: normal;
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.music-fab:not(.playing) .icon::after {
+content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%; 
+    
+    width: calc(55px * 1.42); 
+    
+    height: 1.5px; 
+    background-color: #8b0000cb; 
+    
+    transform: translate(-50%, -50%) rotate(-45deg); 
+    
+    transition: all 0.3s ease;
+    pointer-events: none; 
+    z-index: 2; 
+    border-radius: 2px; 
+}
+
+/* 主要內容區塊 */
+main {
+    max-width: none;
+    width: 100%;
+    display: block;
+    margin: 0;
+    padding: 0;
+    flex: 1 0 auto;
+}
+
+/* section blocks start */
+section {
+    background: radial-gradient(circle, #F5F1E6 0%, #f4eee1 100%);
+    border: 1px solid #D2C1A5;
+    margin-bottom: 30px;
+    padding: 15px 30px 30px 30px;
+    ;
+    border-radius: 4px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    color: #3E322B;
+}
+
+section h2 {
+    color: #5C4033;
+    margin-top: 0;
+    border-bottom: 2px solid #D2C1A5;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* section blocks end */
+
+/* 頁尾 */
+footer {
+    flex-shrink: 0;
+    text-align: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(8px);
+    color: #5C4033;
+    border-top: 1px solid rgba(210, 193, 165, 0.3);
+    margin-top: auto;
+}
+
+/* 手機板排版 */
+@media (max-width: 768px) {
+    header {
+        min-height: 7vh !important;
+        padding: 0 5px !important;
+        justify-content: center;
+    }
+
+    .menu-btn {
+        font-family: "Arial Black", "Verdana", "Microsoft JhengHei", sans-serif;
+
+        background: transparent;
+        border: none;
+
+        color: #5C4033;
+        font-size: 2.2rem;
+        font-weight: 400;
+        letter-spacing: 1.5px;
+        cursor: pointer;
+        padding: 5px 7.5px;
+
+        text-shadow:
+            1px 1px 2px rgba(0, 0, 0, 0.2),
+            -1px -1px 2px rgba(255, 255, 255, 0.8);
+
+        transition: all 0.3s ease-in-out;
+        outline: none;
+    }
+
+    main {
+        max-width: 100%;
+        margin: 10px auto;
+        padding: 0 15px;
+        box-sizing: border-box;
+    }
+
+    .music-player {
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .music-fab {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+    }
+
+    section {
+        padding: 15px !important;
+        margin-bottom: 20px;
+    }
+
+    /* blocks */
+    section {
+        padding: 10px 15px 20px 15px !important;
+    }
+
+    section h2 {
+        margin-top: 0 !important;
+        font-size: 1.2rem !important;
+    }
+}

@@ -5,250 +5,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FF14 基督教公會 | 艾奧傑亞的團契</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="style.css?v=260402v01">
+    <link rel="stylesheet" href="css/global.css?v=260411">
+    <link rel="stylesheet" href="css/home.css?v=260411">
 </head>
 
 <body>
+    <div class="menu-container">
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+        <div id="side-menu" class="side-menu">
+            <a href="index.html">Home</a>
+            <a href="home.html" class="active">About</a>
+            <a href="photos.html">Photos</a>
+            <a href="secret.html">Secret</a>
+        </div>
+    </div>
+
+    <audio id="bgm" loop style="display: none; visibility: hidden; position: absolute; width: 0; height: 0;">
+        <source src="bgm/edit/AmazingGrace_piano.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="music-player">
+        <div id="music-toggle" class="music-fab" onclick="toggleMusic()">
+            <span class="icon">♪</span>
+        </div>
+    </div>
+
     <header>
-        <h1>基督教公會</h1>
-        <hr class="line">
-        <p>FINAL FANTASY XIV</p>
+        <div class="titles-wrapper">
+            <h1>基督教公會</h1>
+            <hr class="line">
+            <p>FINAL FANTASY XIV</p>
+        </div>
     </header>
 
-    <nav>
-        <a href="#about">關於我們</a>
-        <a href="#activities">公會活動</a>
-        <a href="#join">加入我們</a>
-    </nav>
-
     <main>
-        <section id="about">
-            <h2>關於我們</h2>
-            <p>基督教會大聖堂 巴哈姆特海都 1-35號</p>
-            <p>我們愛主</p>
-        </section>
-
-        <section id="activities">
-            <h2>公會活動</h2>
-
-            <ul class="activity-tabs">
-                <li class="tab-btn active" onclick="showSlider('church')">基督教大教堂</li>
-                <li class="tab-btn" onclick="showSlider('Group')">聖徒團契</li>
-                <li class="tab-btn" onclick="showSlider('event_Valentine')">情人節暨新年活動</li>
-                <li class="tab-btn" onclick="showSlider('event_Christmas')">聖誕節活動</li>
-            </ul>
-
-            <div class="all-sliders">
-                <div id="church" class="slider-group active">
-                    <div class="carousel-wrapper">
-                        <button class="prev" onclick="moveSlide('church', -1)">❮</button>
-                        <div class="slider-container">
-                            <div class="item"><img src="images/大聖堂1.jpg" alt="教堂1" onclick="openLightbox(this)"></div>
-                            <div class="item"><img src="images/大聖堂2.jpg" alt="教堂2" onclick="openLightbox(this)"></div>
-                            <div class="item"><img src="images/大聖堂3.jpg" alt="教堂3" onclick="openLightbox(this)"></div>
-                            <div class="item"><img src="images/預定地合照1.jpg" alt="預定地合照1" onclick="openLightbox(this)">
-                            </div>
-                            <div class="item"><img src="images/預定地合照2.jpg" alt="預定地合照2" onclick="openLightbox(this)">
-                            </div>
-                        </div>
-                        <button class="next" onclick="moveSlide('church', 1)">❯</button>
-                    </div>
-                    <p class="slider-note">大聖堂系列照片</p>
+        <section class="about-flex-container">
+            <div class="img-frame">
+                <div class="img-wrapper">
+                    <img src="images/白袍合照1_亮.jpg" alt="白袍合照">
                 </div>
+            </div>
 
-                <div id="Group" class="slider-group">
-                    <div class="carousel-wrapper">
-                        <button class="prev" onclick="moveSlide('Group', -1)">❮</button>
-                        <div class="slider-container">
-                            <div class="item"><img src="images/挖寶合照1.jpg" alt="挖寶合照1" onclick="openLightbox(this)">
-                            </div>
-                            <div class="item"><img src="images/白袍合照1.jpg" alt="白袍合照1" onclick="openLightbox(this)">
-                            </div>
-                            <div class="item"><img src="images/白袍合照2.jpg" alt="白袍合照2" onclick="openLightbox(this)">
-                            </div>
-                            <div class="item"><img src="images/婚禮合照1.jpg" alt="婚禮合照1" onclick="openLightbox(this)">
-                            </div>
-                            <div class="item"><img src="images/婚禮合照2.jpg" alt="婚禮合照2" onclick="openLightbox(this)">
-                            </div>
-                            <div class="item"><img src="images/婚禮合照3.jpg" alt="婚禮合照3" onclick="openLightbox(this)">
-                            </div>
-                            <div class="item"><img src="images/婚禮合照4.jpg" alt="婚禮合照4" onclick="openLightbox(this)">
-                            </div>
-                            <div class="item"><img src="images/婚禮合照5.jpg" alt="婚禮合照5" onclick="openLightbox(this)">
-                            </div>
-                        </div>
-                        <button class="next" onclick="moveSlide('Group', 1)">❯</button>
-                    </div>
-                    <p class="slider-note">聖徒團契合照</p>
-                </div>
-
-                <div id="event_Valentine" class="slider-group">
-                    <div class="carousel-wrapper">
-                        <button class="prev" onclick="moveSlide('event_Valentine', -1)">❮</button>
-                        <div class="slider-container">
-                            <div class="item"><img src="images/情人節/抖腳狂人鳥1.jpg" alt="抖腳狂人鳥1"
-                                    onclick="openLightbox(this)"></div>
-                            <div class="item"><img src="images/情人節/抖腳狂人鳥2.jpg" alt="抖腳狂人鳥2"
-                                    onclick="openLightbox(this)"></div>
-                            <div class="item"><img src="images/情人節/喬.jpg" alt="喬" onclick="openLightbox(this)"></div>
-                            <div class="item"><img src="images/情人節/耶穌.jpg" alt="耶穌" onclick="openLightbox(this)"></div>
-                            <div class="item"><img src="images/情人節/赤芍.jpg" alt="赤芍" onclick="openLightbox(this)"></div>
-                            <div class="item"><img src="images/情人節/小椪皮.jpg" alt="小椪皮" onclick="openLightbox(this)">
-                            </div>
-                            <div class="item"><img src="images/情人節/小茶茶.jpg" alt="小茶茶" onclick="openLightbox(this)">
-                            </div>
-                            <div class="item"><img src="images/情人節/蟹道人.jpg" alt="蟹道人" onclick="openLightbox(this)">
-                            </div>
-                            <div class="item"><img src="images/情人節/大雞蛋.jpg" alt="大雞蛋" onclick="openLightbox(this)">
-                            </div>
-                            <div class="item"><img src="images/情人節/第三名大雞蛋.jpg" alt="第三名大雞蛋"
-                                    onclick="openLightbox(this)"></div>
-                            <div class="item"><img src="images/情人節/第二名小椪皮.jpg" alt="第二名小椪皮"
-                                    onclick="openLightbox(this)"></div>
-                            <div class="item"><img src="images/情人節/第一名小茶茶.jpg" alt="第一名小茶茶"
-                                    onclick="openLightbox(this)"></div>
-                            <div class="item"><img src="images/情人節/團照1.jpg" alt="團照1" onclick="openLightbox(this)">
-                            </div>
-                            <div class="item"><img src="images/情人節/團照2.jpg" alt="團照2" onclick="openLightbox(this)">
-                            </div>
-                            <div class="item"><img src="images/情人節/團照4.jpg" alt="團照3" onclick="openLightbox(this)">
-                            </div>
-                            <div class="item"><img src="images/情人節/團照4.jpg" alt="團照4" onclick="openLightbox(this)">
-                            </div>
-                        </div>
-                        <button class="next" onclick="moveSlide('event_Valentine', 1)">❯</button>
-                    </div>
-                    <p class="slider-note">情人節暨新年活動攝影大賽</p>
-                </div>
-
-                <div id="event_Christmas" class="slider-group">
-                    <div class="carousel-wrapper">
-                        <button class="prev" onclick="moveSlide('event_Christmas', -1)">❮</button>
-                        <div class="slider-container">
-                            <div class="item"><img src="images/聖誕節合照1.jpg" alt="聖誕節合照1" onclick="openLightbox(this)">
-                            </div>
-                            <div class="item"><img src="images/聖誕節合照2.jpg" alt="聖誕節合照2" onclick="openLightbox(this)">
-                            </div>
-                            <div class="item"><img src="images/聖誕節合照3.jpg" alt="聖誕節合照3" onclick="openLightbox(this)">
-                            </div>
-                            <div class="item"><img src="images/聖誕節合照4.jpg" alt="聖誕節合照4" onclick="openLightbox(this)">
-                            </div>
-                            <div class="item"><img src="images/聖誕節合照5.jpg" alt="聖誕節合照5" onclick="openLightbox(this)">
-                            </div>
-                            <div class="item"><img src="images/聖誕節合照6.jpg" alt="聖誕節合照6" onclick="openLightbox(this)">
-                            </div>
-                            <div class="item"><img src="images/聖誕節合照7.jpg" alt="聖誕節合照7" onclick="openLightbox(this)">
-                            </div>
-                            <div class="item"><img src="images/聖誕節合照8.jpg" alt="聖誕節合照8" onclick="openLightbox(this)">
-                            </div>
-                            <div class="item"><img src="images/聖誕節合照9.jpg" alt="聖誕節合照9" onclick="openLightbox(this)">
-                            </div>
-                        </div>
-                        <button class="next" onclick="moveSlide('event_Christmas', 1)">❯</button>
-                    </div>
-                    <p class="slider-note">聖誕節活動紀錄</p>
+            <div class="about-text-frame">
+                <div class="content">
+                    <h2>基督教會大聖堂</h2>
+                    <h3>巴哈姆特伺服器 | 海霧村 1-35</h3>
+                    <p>我們是一個休閒慢活的FF14公會，歡迎每一位光之戰士來到這個溫暖的家。</p>
+                    <p>無論你是想參與活動、副本揪團，還是只想輕鬆掛機聊天，這裡都有愛你的弟兄姊妹。</p>
+                    <p>歡迎加入我們的行列！在這裡沒有進度壓力，按自己步調遊玩。</p>
+                    <p>請至巴哈姆特海都擴建區1-35拜訪我們。</p>
+                    <p>我們愛主，也愛彼此，阿門。</p>
+                    <h4>因為無論在那裡，有兩三個人奉我的名聚會，那裡就有我在他們中間。</h4>
                 </div>
             </div>
         </section>
-
-        <section id="join">
-            <h2>加入我們</h2>
-            <p>無論你是剛入坑的豆芽，還是身經百戰的光之戰士，都歡迎加入我們的行列！在這裡沒有進度壓力，按自己步調遊玩。</p>
-            <p>請至巴哈姆特海都1-35拜訪我們。</p>
-            <!-- <a href="你的Discord邀請連結請貼在這裡" class="btn" target="_blank">前往 Discord 伺服器</a>  -->
-        </section>
     </main>
+
 
     <footer>
         <p>© 2026 FF14 基督教公會. All rights reserved.</p>
     </footer>
 
-<div id="lightbox" class="lightbox">
-        <span class="close-btn" onclick="closeLightbox()">&times;</span>
-        <button class="lightbox-prev" onclick="changeLightboxImage(-1)">&#10094;</button>
-        <img class="lightbox-content" id="lightbox-img">
-        <button class="lightbox-next" onclick="changeLightboxImage(1)">&#10095;</button>
-    </div>
-
-    <script>
-        let currentSlideIndex = 0;
-        let currentLightboxIndex = 0;
-        let currentLightboxImages = [];
-
-        // 1. 分類切換邏輯
-        function showSlider(sliderId) {
-            const groups = document.querySelectorAll('.slider-group');
-            groups.forEach(g => g.classList.remove('active'));
-
-            const btns = document.querySelectorAll('.tab-btn');
-            btns.forEach(b => b.classList.remove('active'));
-
-            const target = document.getElementById(sliderId);
-            if (target) {
-                target.classList.add('active');
-                currentSlideIndex = 0;
-                const container = target.querySelector('.slider-container');
-                if (container) container.scrollLeft = 0;
-            }
-
-            if (event && event.currentTarget) {
-                event.currentTarget.classList.add('active');
-            }
-        }
-
-        // 2. 輪播器控制邏輯
-        function moveSlide(sliderId, direction) {
-            const container = document.querySelector(`#${sliderId} .slider-container`);
-            if (!container) return;
-
-            const items = container.querySelectorAll('.item');
-            const totalSlides = items.length;
-
-            currentSlideIndex += direction;
-            if (currentSlideIndex >= totalSlides) currentSlideIndex = 0;
-            else if (currentSlideIndex < 0) currentSlideIndex = totalSlides - 1;
-
-            const targetLeft = container.clientWidth * currentSlideIndex;
-            container.scrollTo({ left: targetLeft, behavior: 'smooth' });
-        }
-
-        // 3. Lightbox 手動控制邏輯
-        function openLightbox(imgElement) {
-            const lightbox = document.getElementById("lightbox");
-            const lightboxImg = document.getElementById("lightbox-img");
-            
-            // 抓取當前 Slider 內的所有圖片，以便手動切換
-            const container = imgElement.closest('.slider-container');
-            const allImages = Array.from(container.querySelectorAll('img'));
-            
-            currentLightboxImages = allImages.map(img => img.src);
-            currentLightboxIndex = currentLightboxImages.indexOf(imgElement.src);
-            
-            lightbox.style.display = "flex";
-            lightboxImg.src = currentLightboxImages[currentLightboxIndex];
-            document.body.style.overflow = "hidden"; // 防止背景捲動
-        }
-
-        function changeLightboxImage(direction) {
-            currentLightboxIndex = (currentLightboxIndex + direction + currentLightboxImages.length) % currentLightboxImages.length;
-            document.getElementById("lightbox-img").src = currentLightboxImages[currentLightboxIndex];
-        }
-
-        function closeLightbox() {
-            document.getElementById("lightbox").style.display = "none";
-            document.body.style.overflow = "auto";
-        }
-
-        // 鍵盤支援
-        document.addEventListener('keydown', function(e) {
-            const lb = document.getElementById("lightbox");
-            if (lb.style.display === "flex") {
-                if (e.key === "ArrowLeft") changeLightboxImage(-1);
-                if (e.key === "ArrowRight") changeLightboxImage(1);
-                if (e.key === "Escape") closeLightbox();
-            }
-        });
-    </script>
+    <script src="js/menu.js"></script>
 </body>
+
 </html>

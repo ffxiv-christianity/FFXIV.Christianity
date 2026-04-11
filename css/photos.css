@@ -426,6 +426,9 @@ header {
     }
 
     .tab-item {
+        cursor: pointer !important; 
+        -webkit-user-select: none !important;
+        -webkit-tap-highlight-color: transparent !important;
         font-size: 1rem !important;
         font-weight: 700;
         letter-spacing: 1px !important;

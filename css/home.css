@@ -194,10 +194,10 @@ header {
         position: absolute !important;
         bottom: 15px;
         right: 20px;
-
+        padding-top: 10px;
         width: 90% !important;
         font-size: 0.85rem !important;
-        text-align: right;
+        text-align: left;
         margin: 0 !important;
         line-height: 1.4 !important;
     }

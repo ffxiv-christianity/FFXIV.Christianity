@@ -398,64 +398,74 @@ header {
 
 /* 手機板排版 */
 @media (max-width: 768px) {
+    /* 1. Header 與導覽容器修正 */
+    header {
+        min-height: 60px !important;
+        /* 允許 Header 內容溢出，這是讓子選單不被切斷的關鍵 */
+        overflow: visible !important; 
+    }
+
     .category-nav {
         padding-left: 0 !important;
         width: 100%;
         display: flex;
         justify-content: center;
+        /* 移除任何可能裁切子選單的設定 */
+        overflow: visible !important; 
     }
 
+    /* 2. 主分頁清單：縮小間距防止過早換行 */
     .main-tabs {
         justify-content: center;
-        gap: 25px;
-        flex-wrap: wrap;
+        /* 縮小間距 (原版 60px 太大) */
+        gap: 20px !important; 
+        flex-wrap: nowrap !important; /* 強制不換行，但我們縮小字體來適應 */
         padding: 10px 0;
+        overflow: visible !important;
     }
 
+    /* 3. 分頁文字縮放 */
     .tab-item {
-        font-size: 1.15rem !important;
+        /* 縮小字體，確保在 430px (iPhone Pro Max) 寬度內能併排三個標籤 */
+        font-size: 1rem !important; 
         font-weight: 700;
-        letter-spacing: 1.5px !important;
+        letter-spacing: 1px !important;
         padding: 5px 2px;
+        white-space: nowrap; /* 確保文字本身不換行 */
     }
 
-    .tab-item::after {
-        bottom: -2px;
-    }
-
+    /* 4. 子選單修正：處理遮擋與定位 */
     .submenu {
-        min-width: 200px;
+        position: absolute !important;
+        top: 100% !important; /* 緊貼標籤下方 */
+        left: 50% !important;
+        transform: translateX(-50%); /* 居中對齊標籤 */
+        min-width: 160px !important; /* 稍微縮小寬度，避免超出螢幕 */
+        background: #fdfaf5;
+        border: 1px solid #D2C1A5;
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        z-index: 5000 !important;
+        /* 防止選單被下方內容壓住 */
     }
 
-    #photos-flex-container {
-        margin-top: 20px auto;
+    .submenu li {
+        padding: 12px 15px !important;
+        font-size: 0.9rem !important;
     }
 
-    header h1 {
-        font-size: 1.2rem !important;
-    }
-
-    header p {
-        font-size: 0.8rem !important;
-    }
-
+    /* 5. 內容區塊修正 */
     #photos-flex-container {
         flex-direction: column;
         align-items: center;
         gap: 30px;
+        margin: 20px auto !important;
     }
 
     .photos-img-frame,
     .photos-text-frame {
-        width: 90%;
+        width: 95% !important;
         flex: none;
-    }
-
-        #photos-flex-container {
-        flex-direction: column;
-        align-items: center;
-        gap: 30px;
+        box-sizing: border-box;
     }
 
     .item img {

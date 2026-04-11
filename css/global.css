@@ -7,6 +7,12 @@ header {
     padding: 0;
 }
 
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
 /* body */
 body {
     background-image:
@@ -21,6 +27,9 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #333;
     line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* MENU按鈕 */
@@ -120,6 +129,73 @@ body {
 
 /* MENU選單End */
 
+/* 音樂播放器 */
+.music-player {
+    position: fixed !important;
+    bottom: 30px !important;
+    right: 30px !important;
+    z-index: 6000 !important;
+    width: 55px !important;
+    height: 55px !important;
+    overflow: visible !important;
+}
+
+
+/* 圓形按鈕本體 (FAB) */
+.music-fab {
+    width: 90% !important;
+    height: 90% !important;
+    border-radius: 50% !important;
+    background-color: #F5F1E6 !important;
+    border: 1px solid #D2C1A5 !important;
+    color: #5C4033;
+
+    font-size: 1.8rem !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    background-image: none !important;
+    overflow: hidden !important;
+
+    margin: 0 !important;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    position: relative !important; 
+}
+
+.music-fab .icon {
+    position: relative; 
+    display: inline-block;
+    font-style: normal;
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.music-fab:not(.playing) .icon::after {
+content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%; 
+    
+    width: calc(55px * 1.42); 
+    
+    height: 1.5px; 
+    background-color: #8b0000cb; 
+    
+    transform: translate(-50%, -50%) rotate(-45deg); 
+    
+    transition: all 0.3s ease;
+    pointer-events: none; 
+    z-index: 2; 
+    border-radius: 2px; 
+}
+
 /* 主要內容區塊 */
 main {
     max-width: none;
@@ -127,6 +203,7 @@ main {
     display: block;
     margin: 0;
     padding: 0;
+    flex: 1 0 auto;
 }
 
 /* section blocks start */
@@ -153,15 +230,18 @@ section h2 {
 
 /* 頁尾 */
 footer {
+    flex-shrink: 0;
     text-align: center;
     padding: 20px;
-    background: #2c3e50;
-    color: #fff;
-    margin-top: 40px;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(8px);
+    color: #5C4033;
+    border-top: 1px solid rgba(210, 193, 165, 0.3);
+    margin-top: auto;
 }
 
 /* 手機板排版 */
-@media (max-width: 900px) {
+@media (max-width: 768px) {
     header {
         min-height: 7vh !important;
         padding: 0 5px !important;
@@ -169,24 +249,24 @@ footer {
     }
 
     .menu-btn {
-    font-family: "Arial Black", "Verdana", "Microsoft JhengHei", sans-serif;
+        font-family: "Arial Black", "Verdana", "Microsoft JhengHei", sans-serif;
 
-    background: transparent;
-    border: none;
+        background: transparent;
+        border: none;
 
-    color: #5C4033;
-    font-size: 2.2rem;
-    font-weight: 400;
-    letter-spacing: 1.5px;
-    cursor: pointer;
-    padding: 5px 7.5px;
+        color: #5C4033;
+        font-size: 2.2rem;
+        font-weight: 400;
+        letter-spacing: 1.5px;
+        cursor: pointer;
+        padding: 5px 7.5px;
 
-    text-shadow:
-        1px 1px 2px rgba(0, 0, 0, 0.2),
-        -1px -1px 2px rgba(255, 255, 255, 0.8);
+        text-shadow:
+            1px 1px 2px rgba(0, 0, 0, 0.2),
+            -1px -1px 2px rgba(255, 255, 255, 0.8);
 
-    transition: all 0.3s ease-in-out;
-    outline: none;
+        transition: all 0.3s ease-in-out;
+        outline: none;
     }
 
     main {
@@ -194,6 +274,17 @@ footer {
         margin: 10px auto;
         padding: 0 15px;
         box-sizing: border-box;
+    }
+
+    .music-player {
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .music-fab {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
     }
 
     section {

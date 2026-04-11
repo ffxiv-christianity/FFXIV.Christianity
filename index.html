@@ -80,7 +80,7 @@
 </head>
 
 <body>
-    <a href="home.html" class="entry-link">
+    <a href="home.html" class="entry-link" onclick="enableMusic()">
         <div class="back-layer"></div>
 
         <div class="front-layer">
@@ -88,5 +88,12 @@
         </div>
     </a>
 </body>
+
+<script>
+function enableMusic() {
+    localStorage.setItem('playBgm', 'true');
+    localStorage.setItem('resetMusic', 'true');
+}
+</script>
 
 </html>

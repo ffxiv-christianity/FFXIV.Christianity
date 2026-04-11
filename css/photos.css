@@ -127,6 +127,7 @@ header {
 }
 
 .photos-text-frame {
+    position: relative;
     flex: 0.8;
     background: radial-gradient(circle, #FDFBF7 0%, #F5F1E6 100%);
     padding: 45px 40px;
@@ -135,6 +136,7 @@ header {
     min-height: 480px;
     box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.05);
     line-height: 1.8;
+    padding-bottom: 80px;
 }
 
 .slider-group,
@@ -155,6 +157,25 @@ header {
     margin-bottom: 10px;
     border-bottom: none !important;
     position: relative;
+}
+
+.note-content h3 {
+    font-family: "Kaiti", "STKaiti", "標楷體", serif;
+    color: #8A7B63;
+    font-size: 1.1rem;
+    font-weight: 500;
+    font-style: italic;
+    letter-spacing: 1px;
+    margin: 0;
+    position: absolute;
+    bottom: 30px;
+    right: 40px;
+    text-align: right;
+    line-height: 1.6;
+}
+
+.note-content h3+h3 {
+    bottom: 10px;
 }
 
 .note-content p {
@@ -297,7 +318,7 @@ header {
 .lightbox {
     display: none;
     position: fixed;
-    z-index: 2000;
+    z-index: 9000;
     top: 0;
     left: 0;
     width: 100%;
@@ -376,7 +397,7 @@ header {
 }
 
 /* 手機板排版 */
-@media (max-width: 900px) {
+@media (max-width: 768px) {
     .category-nav {
         padding-left: 0 !important;
         width: 100%;
@@ -427,8 +448,14 @@ header {
 
     .photos-img-frame,
     .photos-text-frame {
-        width: 100%;
+        width: 90%;
         flex: none;
+    }
+
+        #photos-flex-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
     }
 
     .item img {

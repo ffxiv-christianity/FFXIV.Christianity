@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FF14 基督教公會 | 艾奧傑亞的團契</title>
-    <link rel="stylesheet" href="css/global.css?v=260402v01">
-    <link rel="stylesheet" href="css/home.css?v=260402v01">
+    <link rel="stylesheet" href="css/global.css?v=260411">
+    <link rel="stylesheet" href="css/home.css?v=260411">
 </head>
 
 <body>
@@ -16,15 +16,26 @@
             <a href="index.html">Home</a>
             <a href="home.html" class="active">About</a>
             <a href="photos.html">Photos</a>
-            <a href="join.html">Join us</a>
             <a href="secret.html">Secret</a>
         </div>
     </div>
 
+    <audio id="bgm" loop style="display: none; visibility: hidden; position: absolute; width: 0; height: 0;">
+        <source src="bgm/edit/AmazingGrace_piano.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="music-player">
+        <div id="music-toggle" class="music-fab" onclick="toggleMusic()">
+            <span class="icon">♪</span>
+        </div>
+    </div>
+
     <header>
-        <h1>基督教公會</h1>
-        <hr class="line">
-        <p>FINAL FANTASY XIV</p>
+        <div class="titles-wrapper">
+            <h1>基督教公會</h1>
+            <hr class="line">
+            <p>FINAL FANTASY XIV</p>
+        </div>
     </header>
 
     <main>
@@ -41,11 +52,15 @@
                     <h3>巴哈姆特伺服器 | 海霧村 1-35</h3>
                     <p>我們是一個休閒慢活的FF14公會，歡迎每一位光之戰士來到這個溫暖的家。</p>
                     <p>無論你是想參與活動、副本揪團，還是只想輕鬆掛機聊天，這裡都有愛你的弟兄姊妹。</p>
+                    <p>歡迎加入我們的行列！在這裡沒有進度壓力，按自己步調遊玩。</p>
+                    <p>請至巴哈姆特海都擴建區1-35拜訪我們。</p>
                     <p>我們愛主，也愛彼此，阿門。</p>
+                    <h4>因為無論在那裡，有兩三個人奉我的名聚會，那裡就有我在他們中間。</h4>
                 </div>
             </div>
         </section>
     </main>
+
 
     <footer>
         <p>© 2026 FF14 基督教公會. All rights reserved.</p>

@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FF14 基督教公會 | 艾奧傑亞的團契</title>
-    <link rel="stylesheet" href="css/global.css?v=260402v01">
-    <link rel="stylesheet" href="css/join.css?v=260402v01">
+    <link rel="stylesheet" href="css/global.css?v=260411">
+    <link rel="stylesheet" href="css/join.css?v=260411">
 </head>
 
 <body>
@@ -16,8 +16,17 @@
             <a href="index.html">Home</a>
             <a href="home.html">About</a>
             <a href="photos.html">Photos</a>
-            <a href="join.html" class="active">Join us</a>
             <a href="secret.html">Secret</a>
+        </div>
+    </div>
+
+    <audio id="bgm" loop style="display: none; visibility: hidden; position: absolute; width: 0; height: 0;">
+        <source src="bgm/edit/AmazingGrace_piano.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="music-player">
+        <div id="music-toggle" class="music-fab" onclick="toggleMusic()">
+            <span class="icon">♪</span>
         </div>
     </div>
 
@@ -25,21 +34,29 @@
 
     <main>
         <section class="join-flex-container">
-            <div class="img-frame">
+            <div class="img-frame side-a">
                 <div class="img-wrapper">
-                    <img src="images/白袍合照1_亮.jpg" alt="白袍合照">>
+                    <img src="images/耶穌張臂_右.jpg" alt="耶穌張臂_右">
                 </div>
             </div>
 
             <div class="join-text-frame">
                 <div class="content">
                     <h2>加入我們</h2>
+                    <hr class="inner-line">
                     <p>無論你是剛入坑的豆芽，還是身經百戰的光之戰士，都歡迎加入我們的行列！在這裡沒有進度壓力，按自己步調遊玩。</p>
-                    <p>請至巴哈姆特海都1-35拜訪我們。</p>
+                    <p>請至巴哈姆特海都擴建區1-35拜訪我們。</p>
+
+                    <h3>因為無論在那裡，有兩三個人奉我的名聚會，那裡就有我在他們中間。</h3>
+                </div>
+            </div>
+
+            <div class="img-frame side-b">
+                <div class="img-wrapper">
+                    <img src="images/耶穌張臂_左.jpg" alt="耶穌張臂_左">
                 </div>
             </div>
         </section>
-
     </main>
 
     <footer>

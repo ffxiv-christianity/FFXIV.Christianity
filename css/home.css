@@ -84,7 +84,7 @@ header {
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
 
-    min-height: 400px;
+    min-height: 425px;
     display: flex;
     flex-direction: column;
     position: relative;

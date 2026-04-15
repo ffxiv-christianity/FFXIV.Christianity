@@ -1,3 +1,6 @@
+/* =========================================
+   1. 首頁 Header (大圖橫幅)
+   ========================================= */
 header {
     background-image: url('../images/大聖堂2.jpg');
     background-size: cover;
@@ -25,14 +28,15 @@ header {
     align-self: flex-end;
 }
 
+/* =========================================
+   2. 主要內容容器 (About 區塊)
+   ========================================= */
 .about-flex-container {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-
     width: 95%;
     max-width: 1600px;
-
     margin: 60px auto;
     background: transparent !important;
     border: none !important;
@@ -41,21 +45,22 @@ header {
     gap: 60px;
 }
 
+/* 左側圖片框架 */
 .img-frame {
     flex: 1 1 50%;
     width: 50%;
     box-sizing: border-box;
-
     background: #fdfaf5;
     padding: 15px;
     border: 1px solid #D2C1A5;
     box-shadow: 8px 8px 0px #D2C1A5, 15px 15px 25px rgba(0, 0, 0, 0.15);
     transform: rotate(-1.5deg);
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .img-frame:hover {
     transform: rotate(0deg) scale(1.02);
+    box-shadow: 12px 12px 0px #D2C1A5, 20px 20px 35px rgba(0, 0, 0, 0.2);
 }
 
 .img-wrapper {
@@ -68,7 +73,6 @@ header {
     height: 100%;
     display: block;
     border: 1px solid #eee;
-
 }
 
 /* 右側文字框架 */
@@ -77,13 +81,11 @@ header {
     width: 50%;
     box-sizing: border-box;
     font-weight: 450;
-
     background: radial-gradient(circle, #F5F1E6 0%, #f4eee1 100%);
     padding: 10px 40px 30px 40px;
     border: 1px solid #D2C1A5;
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
-
     min-height: 425px;
     display: flex;
     flex-direction: column;
@@ -117,15 +119,43 @@ header {
     margin: 0;
 
     position: absolute;
-    bottom: 10px;
-    right: 20px;
-    width: 80%;
-    text-align: right;
+    bottom: 20px;
+    right: 40px;
+
+    width: max-content;
+    max-width: 85%;
+    text-align: left;
     line-height: 1.6;
     text-shadow: 0.5px 0.5px 0px rgba(255, 255, 255, 0.8);
 }
 
-/* --- 手機版排版修正 --- */
+/* =========================================
+   過渡斷點 - 平板與分割視窗 (Tablet & Split-Screen)
+   當視窗小於 1100px 時，提早將左右排列改為上下疊加，避免文字擠壓
+   ========================================= */
+@media (max-width: 1200px) {
+    .about-flex-container,
+    .secret-flex-container {
+        flex-direction: column; /* 提早變成上下排列 */
+        align-items: center;
+        gap: 40px; 
+    }
+
+    .img-frame,
+    .about-text-frame,
+    .secret-text-frame {
+        width: 90%; /* 寬度放寬，讓內容有足夠空間 */
+        flex: none;
+    }
+
+    .img-frame {
+        transform: rotate(0deg); /* 螢幕變窄時取消旋轉，避免干擾排版 */
+    }
+}
+
+/* =========================================
+   3. 響應式設計 - 手機板 (Mobile)
+   ========================================= */
 @media (max-width: 768px) {
     header {
         min-height: 12vh !important;
@@ -134,7 +164,6 @@ header {
         line-height: 1.2 !important;
         position: relative !important;
         display: block !important;
-        line-height: 1 !important;
         background-attachment: scroll;
     }
 
@@ -188,17 +217,48 @@ header {
         position: relative !important;
         width: 100%;
         flex: none;
+        font-size: 0.9rem; 
     }
 
     .about-text-frame .content h4 {
         position: absolute !important;
         bottom: 15px;
-        right: 20px;
+        right: 25px;
         padding-top: 10px;
-        width: 90% !important;
-        font-size: 0.85rem !important;
-        text-align: left;
+        width: max-content;
+        max-width: 85%;
+        font-size: 0.9rem !important;
+        text-align: left !important;
         margin: 0 !important;
         line-height: 1.4 !important;
+        font-size: 0.9rem; 
+    }
+}
+
+/* =========================================
+   4. 響應式設計 - 超寬螢幕 (Ultra-Wide / 2K+)
+   ========================================= */
+@media (min-width: 1921px) {
+    header {
+        min-height: 50vh; 
+    }
+
+    .about-flex-container {
+        max-width: 1800px; 
+        gap: 80px;         
+        margin: 80px auto;
+    }
+
+    .about-text-frame {
+        padding: 30px 60px 120px 60px !important; 
+        font-size: 1.15rem; 
+    }
+
+    .about-text-frame .content h4 {
+        font-size: 1.2rem;
+        right: 60px; 
+        bottom: 30px;
+        width: max-content;
+        max-width: 85%;
     }
 }

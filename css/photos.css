@@ -6,7 +6,7 @@
 }
 
 header {
-    min-height: 70px !important;
+    min-height: 100px !important;
     background: rgba(255, 255, 255, 0.4) !important;
     backdrop-filter: blur(8px);
     display: flex;
@@ -557,7 +557,9 @@ header {
    6. 響應式設計 - 超寬螢幕 (Ultra-Wide / 2K+)
    ========================================= */
 @media (min-width: 1921px) {
-
+    header {
+        min-height: 115px !important; /* 確保能完全包覆 4rem 的巨型漢堡按鈕 */
+    }
 
     #photos-flex-container {
         max-width: 2000px;
@@ -582,15 +584,15 @@ header {
     }
 
     .tab-item {
-        font-size: 2.25rem;
+        font-size: 2rem;
     }
 
     .submenu li {
-        font-size: 1.65rem;
+        font-size: 1.40rem;
     }
 
     .submenu {
-        min-width: 300px !important;
+        min-width: 250px !important;
     }
 
     .note-content h2 {

@@ -437,7 +437,7 @@ header {
 
     .main-tabs {
         cursor: pointer !important;
-        font-size: 1rem !important;
+        font-size: 0.95rem !important;
         flex-wrap: nowrap !important;
         padding: 10px 15px 10px 50px !important;
         justify-content: flex-start !important;
@@ -449,7 +449,7 @@ header {
         cursor: pointer !important;
         -webkit-user-select: none !important;
         -webkit-tap-highlight-color: transparent !important;
-        font-size: 1rem !important;
+        font-size: 0.95rem !important;
         font-weight: 700;
         letter-spacing: 1px !important;
         padding: 5px 2px;
@@ -554,11 +554,15 @@ header {
 }
 
 /* =========================================
-   6. 響應式設計 - 超寬螢幕 (Ultra-Wide / 2K+)
+   6. 響應式設計 - 超寬螢幕 (Ultra-Wide / 2K)
    ========================================= */
 @media (min-width: 1921px) {
     header {
-        min-height: 115px !important; /* 確保能完全包覆 4rem 的巨型漢堡按鈕 */
+        min-height: 115px !important; 
+    }
+
+    .category-nav {
+        padding-left: 230px !important; 
     }
 
     #photos-flex-container {
@@ -599,5 +603,57 @@ header {
         font-size: 2.4rem;
         margin-bottom: 20px;
     }
+}
 
+/* =========================================
+   7. 響應式設計 - 4K 超高解析度 (2561px+)
+   ========================================= */
+@media (min-width: 2561px) {
+    header {
+        min-height: 200px !important; 
+    }
+
+    .category-nav {
+        padding-left: 330px !important; 
+    }
+
+    #photos-flex-container {
+        max-width: 2500px;
+        gap: 120px;
+    }
+
+    .photos-text-frame {
+        padding: 80px 80px 150px 80px !important;
+    }
+
+    .note-content p {
+        font-size: 1.85rem;
+        line-height: 2.1;
+    }
+
+    .note-content h3 {
+        font-size: 1.7rem;
+        right: 20px;
+        bottom: 45px;        
+        width: max-content;
+        max-width: 85%;
+    }
+
+    .tab-item {
+        font-size: 2.5rem;
+    }
+
+    .submenu li {
+        font-size: 1.75rem;
+        padding: 25px 35px;
+    }
+
+    .submenu {
+        min-width: 350px !important;
+    }
+
+    .note-content h2 {
+        font-size: 3rem;
+        margin-bottom: 30px;
+    }
 }

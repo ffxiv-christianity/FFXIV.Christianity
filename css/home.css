@@ -262,3 +262,31 @@ header {
         max-width: 85%;
     }
 }
+
+/* =========================================
+   響應式設計 - 4K 超高解析度 (2561px+)
+   ========================================= */
+@media (min-width: 2561px) {
+    header {
+        min-height: 55vh; 
+    }
+
+    .about-flex-container {
+        max-width: 2400px; 
+        gap: 120px;        
+        margin: 120px auto;
+    }
+
+    .about-text-frame {
+        padding: 40px 80px 150px 80px !important; 
+        font-size: 1.5rem; 
+    }
+
+    .about-text-frame .content h4 {
+        font-size: 1.55rem;
+        right: 80px; 
+        bottom: 40px;
+        width: max-content;
+        max-width: 85%;
+    }
+}

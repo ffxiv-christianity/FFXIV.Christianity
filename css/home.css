@@ -2,7 +2,7 @@
    1. 首頁 Header (大圖橫幅)
    ========================================= */
 header {
-    background-image: url('../images/大聖堂2.jpg');
+    background-image: url('../images/Photos/church/大聖堂2.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -131,12 +131,12 @@ header {
 
 /* =========================================
    過渡斷點 - 平板與分割視窗 (Tablet & Split-Screen)
-   當視窗小於 1100px 時，提早將左右排列改為上下疊加，避免文字擠壓
+   當視窗小於 1200px 時，提早將左右排列改為上下疊加，避免文字擠壓
    ========================================= */
 @media (max-width: 1200px) {
     .about-flex-container,
     .secret-flex-container {
-        flex-direction: column; /* 提早變成上下排列 */
+        flex-direction: column; 
         align-items: center;
         gap: 40px; 
     }
@@ -144,12 +144,12 @@ header {
     .img-frame,
     .about-text-frame,
     .secret-text-frame {
-        width: 90%; /* 寬度放寬，讓內容有足夠空間 */
+        width: 90%; 
         flex: none;
     }
 
     .img-frame {
-        transform: rotate(0deg); /* 螢幕變窄時取消旋轉，避免干擾排版 */
+        transform: rotate(0deg); /* 取消旋轉 */
     }
 }
 

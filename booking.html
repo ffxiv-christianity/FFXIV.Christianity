@@ -492,10 +492,10 @@
                         .then(res => res.json())
                         .then(resData => {
                             if (resData.success) {
-                                // 🌟 1. 預約成功，計數器 +1
+                                // 預約成功，計數器 +1
                                 successfulBookings++; 
 
-                                // 🌟 2. 計算指名上限 (最多3人，且不超過來店人數)
+                                // 計算指名上限 (最多3人，且不超過來店人數)
                                 const partySize = parseInt(inputPartySize.value) || 1;
                                 const maxHosts = Math.min(3, partySize);
                                 const remain = maxHosts - successfulBookings;

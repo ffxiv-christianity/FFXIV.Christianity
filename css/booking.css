@@ -401,6 +401,9 @@ body {
     cursor: help;
     position: relative;
     vertical-align: text-bottom;
+    line-height: 1; 
+    box-sizing: border-box; 
+    padding-left: 1px; 
 }
 
 .tooltip-text {
